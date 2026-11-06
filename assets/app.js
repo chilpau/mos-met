@@ -104,6 +104,7 @@
 
   var catById = {};
   CATS.forEach(function (c) { catById[c.id] = c; });
+  var dealPic = function (c) { return c.photo ? BASE + 'assets/img/deal/' + c.id + '.jpg' : catPic(c); };
   var catPic = function (c) { return BASE + (c.photo || 'assets/img/cat/' + c.id + '.svg'); };
   var unitOf = function (i) { return i.unit ? '<small>' + i.unit + '</small>' : ''; };
 
@@ -117,7 +118,7 @@
     if (!$('deals')) return;
     $('deals').innerHTML = DEALS.map(function (i) {
       var c = catById[i.cat];
-      return '<article class="deal"><a class="deal__img" href="' + i.url + '"><img src="' + catPic(c) + '" alt="' + esc(c.alt || c.name) + '" loading="lazy"><em>−' + offOf(i) + '%</em></a>' +
+      return '<article class="deal"><a class="deal__img" href="' + i.url + '"><img src="' + dealPic(c) + '" alt="' + esc(c.alt || c.name) + '" loading="lazy"><em>−' + offOf(i) + '%</em></a>' +
         '<p class="deal__price"><b>' + fmt(i.price) + '</b><s>' + fmt(i.old) + '</s></p>' + (i.unit ? '<p class="deal__unit">' + i.unit + '</p>' : '') + '<h3><a href="' + i.url + '">' + esc(i.name) + '</a></h3>' +
         '<div class="deal__act">' + actionHtml(i.key, cart[i.key] || 0) + '</div></article>';
     }).join('');
@@ -162,7 +163,7 @@
   function actionHtml(key, qty) {
     return qty
       ? '<span class="stepper"><button type="button" data-dec="' + key + '" aria-label="Уменьшить">−</button><output>' + qty + '</output><button type="button" data-inc="' + key + '" aria-label="Увеличить">+</button></span>'
-      : '<button class="btn btn--small" type="button" data-inc="' + key + '">В заявку</button>';
+      : '<button class="btn btn--small" type="button" data-inc="' + key + '">В расчёт</button>';
   }
   function goPrices(cat, q, sale) {
     if (!$('prices')) {
@@ -326,14 +327,17 @@
   $('tariffs').innerHTML = '<thead><tr><th scope="col">Вес груза</th>' + WEIGHTS.map(function (w) { return '<th scope="col">' + w + '</th>'; }).join('') + '</tr></thead><tbody>' +
     ZONES.map(function (z, n) {
       return row('<i style="background:' + z.color + '"></i>' + z.name, z.r.map(function (v, w) {
-        return '<td data-z="' + n + '" data-w="' + w + '">' + (z.perKm ? v + '\u00a0р/км' : fmt(v)) + '</td>';
+        return '<td data-z="' + n + '" data-w="' + w + '"><button class="tcell" type="button" data-cell="' + n + ':' + w + '">' + (z.perKm ? v + '\u00a0р/км' : fmt(v)) + '</button></td>';
       }).join(''));
     }).join('') +
-    row('Доплата: Рублёво-Успенское, Рублёвское, Подушкинское шоссе', plain(RUB, function (v) { return '+' + fmt(v); })) +
-    row('Доплата за вечер, с 19:00 до 24:00', '<td colspan="5">+' + fmt(3000) + ' на любой груз</td>') +
+    row('Доплата: Рублёво-Успенское, Рублёвское, Подушкинское шоссе', RUB.map(function (v, w) { return '<td data-rub="' + w + '"><button class="tcell" type="button" data-rubcell="' + w + '">+' + fmt(v) + '</button></td>'; }).join('')) +
+    row('Доплата за вечер, с 19:00 до 24:00', '<td colspan="5" data-eve><button class="tcell tcell--wide" type="button" data-evecell>+' + fmt(3000) + ' на любой груз</button></td>') +
     row('Норма разгрузки', plain(UNLOAD, String)) +
     row('Час простоя', plain(IDLE, fmt)) + '</tbody>';
   ['calcKm', 'calcRub', 'calcEve'].forEach(function (id) { $(id).addEventListener('input', renderCalc); });
+  }
+  function tellSum() {
+    toast(ZONES[calc.z].name + ', ' + WEIGHTS[calc.w] + ': предварительно ' + $('calcOut').querySelector('b').textContent);
   }
   function renderCalc() {
     if (!$('calc')) return;
@@ -355,6 +359,10 @@
     document.querySelectorAll('#tariffs td[data-z]').forEach(function (td) {
       td.classList.toggle('is-on', +td.getAttribute('data-z') === calc.z && +td.getAttribute('data-w') === calc.w);
     });
+    document.querySelectorAll('#tariffs td[data-rub]').forEach(function (td) {
+      td.classList.toggle('is-on', $('calcRub').checked && +td.getAttribute('data-rub') === calc.w);
+    });
+    document.querySelectorAll('#tariffs td[data-eve]').forEach(function (td) { td.classList.toggle('is-on', $('calcEve').checked); });
     document.querySelectorAll('[data-weight]').forEach(function (b, n) { b.classList.toggle('is-on', n === calc.w); b.setAttribute('aria-pressed', n === calc.w); });
   }
 
@@ -377,7 +385,7 @@
   }
   window.MM_openMail = window.MM_openMail || function (url) { location.href = url; };
   function sendLead(f) {
-    var kind = f.getAttribute('data-lead') || 'Заявка', lines = [], data = { kind: kind, page: location.href };
+    var kind = f.getAttribute('data-lead') || 'Расчёт стоимости', lines = [], data = { kind: kind, page: location.href };
     new FormData(f).forEach(function (v, k) {
       if (!String(v).trim()) return;
       data[k] = String(v).trim();
@@ -399,7 +407,7 @@
         .catch(function () { toast('Не отправилось. Позвоните нам: +7 (916) 403-73-16'); });
     } else {
       window.MM_openMail('mailto:info@mosmetalloprokat.ru?subject=' + encodeURIComponent(kind + ' с сайта') + '&body=' + encodeURIComponent(lines.join('\n')));
-      toast('Открываем почту. Отправьте письмо, и заявка придёт менеджеру.');
+      toast('Открываем почту. Отправьте письмо, и менеджер свяжется с вами.');
     }
   }
   document.querySelectorAll('form[data-lead]').forEach(function (f) {
@@ -409,7 +417,7 @@
     });
     var consent = f.querySelector('[name=consent]');
     if (consent) {
-      consent.addEventListener('invalid', function () { this.setCustomValidity('Без этого согласия мы не сможем принять заявку'); });
+      consent.addEventListener('invalid', function () { this.setCustomValidity('Без этого согласия мы не сможем сделать расчёт'); });
       consent.addEventListener('change', function () { this.setCustomValidity(''); });
     }
     f.addEventListener('submit', function (e) {
@@ -431,7 +439,7 @@
     if (!e.target.closest('#mega') || e.target.closest('#mega a')) closeMega();
     if (!t) return;
     var a;
-    if ((a = t.getAttribute('data-inc')) !== null) { var isNew = !cart[a]; change(a, 1); if (isNew) toast('Добавлено в заявку: ' + BY_KEY[a].name); }
+    if ((a = t.getAttribute('data-inc')) !== null) { var isNew = !cart[a]; change(a, 1); if (isNew) toast('Добавлено в расчёт: ' + BY_KEY[a].name); }
     else if ((a = t.getAttribute('data-dec')) !== null) change(a, -1);
     else if ((a = t.getAttribute('data-cat'))) goPrices(a);
     else if ((a = t.getAttribute('data-pcat'))) { state.cat = a; state.shown = 12; renderPrices(); }
@@ -440,6 +448,9 @@
     else if (t.hasAttribute('data-all')) goPrices('all', heroInput.value);
     else if ((a = t.getAttribute('data-zone'))) { calc.z = +a; renderCalc(); }
     else if ((a = t.getAttribute('data-weight'))) { calc.w = +a; renderCalc(); }
+    else if ((a = t.getAttribute('data-cell'))) { a = a.split(':'); calc.z = +a[0]; calc.w = +a[1]; renderCalc(); tellSum(); }
+    else if ((a = t.getAttribute('data-rubcell')) !== null) { var sameRub = $('calcRub').checked && calc.w === +a; calc.w = +a; $('calcRub').checked = !sameRub; renderCalc(); tellSum(); }
+    else if (t.hasAttribute('data-evecell')) { $('calcEve').checked = !$('calcEve').checked; renderCalc(); tellSum(); }
     else if ((a = t.getAttribute('data-open'))) $(a).showModal();
     else if (t.hasAttribute('data-open-cart')) { saveCart(); $('cart').showModal(); }
     if (t.hasAttribute('data-close')) { var d = t.closest('dialog'); if (d) d.close(); }
@@ -502,4 +513,32 @@
       location.href = a.pathname + 'index.html' + a.search + a.hash;
     }
   });
+})();
+
+// Поиск: на главной стоит рядом с балкой, а когда первый экран уехал, возвращается в шапку
+(function () {
+  var head = document.querySelector('.header'), search = head && head.querySelector('.search');
+  if (!search) return;
+  var input = search.querySelector('input'), btn = head.querySelector('.searchbtn'), slot = document.getElementById('topSearch');
+  var row = head.querySelector('.header__in'), before = search.nextElementSibling;
+  if (btn) btn.addEventListener('click', function (e) {
+    e.stopPropagation();
+    var open = head.classList.toggle('is-search');
+    btn.setAttribute('aria-expanded', open);
+    if (open) input.focus();
+  });
+  input.addEventListener('input', function () {
+    var box = search.querySelector('.search__results');
+    if (!box.hidden && box.getBoundingClientRect().bottom > innerHeight) box.scrollIntoView({ block: 'nearest' });
+  });
+  if (!slot) return;
+  function place(inHero) {
+    var had = document.activeElement === input;
+    if (inHero) { slot.appendChild(search); head.classList.remove('is-search'); }
+    else row.insertBefore(search, before);
+    head.classList.toggle('has-hero-search', inHero);
+    if (had) input.focus();
+  }
+  place(true);
+  new IntersectionObserver(function (es) { place(es[0].isIntersecting); }, { rootMargin: '-' + head.offsetHeight + 'px 0px 0px 0px' }).observe(slot);
 })();

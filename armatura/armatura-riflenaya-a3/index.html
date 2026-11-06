@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="../../assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../assets/styles.css?v=38">
+<link rel="stylesheet" href="../../assets/styles.css?v=53">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Главная"}, {"@type": "ListItem", "position": 2, "name": "Арматура", "item": "https://mosmetalloprokat.ru/armatura"}, {"@type": "ListItem", "position": 3, "name": "Арматура рифленая А3", "item": "https://mosmetalloprokat.ru/armatura/armatura-riflenaya-a3"}]}</script>
 </head>
 <body class="is-inner">
@@ -31,15 +31,18 @@
       <div class="search__results" id="searchResults" hidden></div>
     </div>
     <div class="header__phone">
-      <a href="tel:+79164037316">+7 (916) 403-73-16</a>
-      <button class="linkbtn" type="button" data-open="callback">Заказать звонок</button>
+      <a class="header__tel" href="tel:+79164037316">+7 (916) 403-73-16</a>
+      <span class="header__sub"><a class="header__mail" href="mailto:info@mosmetalloprokat.ru">info@mosmetalloprokat.ru</a><button class="linkbtn" type="button" data-open="callback">Заказать звонок</button></span>
     </div>
+    <button class="searchbtn" type="button" aria-label="Поиск" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    </button>
     <button class="catbtn catbtn--mobile" type="button" data-mega aria-expanded="false" aria-controls="mega" aria-label="Каталог">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <button class="cartbtn" type="button" data-open-cart aria-label="Открыть заявку">
+    <button class="cartbtn" type="button" data-open-cart aria-label="Рассчитать стоимость">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM9 11h7M9 15h7"/></svg>
-      <span class="cartbtn__txt">Заявка</span>
+      <span class="cartbtn__txt">Рассчитать<span class="cartbtn__more"> стоимость</span></span>
       <b data-cart-count>0</b>
     </button>
   </div>
@@ -49,8 +52,8 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         Весь каталог
       </button>
-      <button class="catnav__sale" type="button" data-sale>Скидки до <span id="maxOff"></span>%</button>
       <a href="../../index.html#prices">Цены</a>
+      <button class="catnav__sale" type="button" data-sale>Скидки до <span id="maxOff"></span>%</button>
       <a href="../../dostavka/">Доставка</a>
       <a href="../../kak-zakazat/">Как заказать</a>
       <a href="../../oplata/">Оплата</a>
@@ -69,15 +72,15 @@
 </header>
 
 <main>
-<div class="wrap pagepad"><nav aria-label="Навигация по разделам"><ol class="crumbs"><li><a href="../../index.html">Главная</a></li><li><a href="../../armatura/">Арматура</a></li><li aria-current="page">Арматура рифленая А3</li></ol></nav>
-<header class="phead"><h1>Арматура рифленая А3</h1><p>12 позиций, цены от 15 р. Доставка по Москве и Московской области, актуальные цены и наличие подтвердит менеджер.</p><div class="chips"><a class="" href="../../armatura/armatura-kompozitnaya-asp/">Арматура композитная АСП</a><a class="is-on" href="../../armatura/armatura-riflenaya-a3/">Арматура рифленая А3</a><a class="" href="../../armatura/armatura-gladkaya-a1/">Арматура гладкая А1</a></div></header>
+<div class="wrap pagepad"><nav aria-label="Навигация по разделам"><ol class="crumbs"><li><a href="../../index.html">Главная</a></li><li><a href="../../catalog/">Каталог</a></li><li><a href="../../armatura/">Арматура</a></li><li aria-current="page">Арматура рифленая А3</li></ol></nav>
+<div class="clayout"><nav class="cside" aria-label="Разделы каталога"><p class="cside__title">Категории</p><a class="is-on" href="../../armatura/"><img src="../../img/images-1.jpg" alt="" loading="lazy"><span>Арматура</span><small>24</small></a><a class="" href="../../truba-kruglaya/"><img src="../../img/images.jpg" alt="" loading="lazy"><span>Труба круглая</span><small>23</small></a><a class="" href="../../shveller/"><img src="../../img/images-2.jpg" alt="" loading="lazy"><span>Швеллер</span><small>11</small></a><a class="" href="../../profnastil/"><img src="../../img/images-3.jpg" alt="" loading="lazy"><span>Профнастил</span><small>10</small></a><a class="" href="../../listovoj-prokat/"><img src="../../img/images-4.jpg" alt="" loading="lazy"><span>Листовой прокат</span><small>20</small></a><a class="" href="../../zaglushki-dlya-trub/"><img src="../../assets/img/cat/zaglushki-dlya-trub.jpg" alt="" loading="lazy"><span>Заглушки для труб</span><small>17</small></a><a class="" href="../../truba-profilnaya/"><img src="../../assets/img/cat/truba-profilnaya.jpg" alt="" loading="lazy"><span>Труба профильная</span><small>51</small></a><a class="" href="../../balka-dvutavrovaya/"><img src="../../assets/img/cat/balka-dvutavrovaya.jpg" alt="" loading="lazy"><span>Балка двутавровая</span><small>15</small></a><a class="" href="../../ugolok-stalnoj/"><img src="../../assets/img/cat/ugolok-stalnoj.jpg" alt="" loading="lazy"><span>Уголок стальной</span><small>20</small></a><a class="" href="../../polosa-stalnaya/"><img src="../../assets/img/cat/polosa-stalnaya.jpg" alt="" loading="lazy"><span>Полоса стальная</span><small>19</small></a><a class="" href="../../kvadrat-stalnoj/"><img src="../../assets/img/cat/kvadrat-stalnoj.jpg" alt="" loading="lazy"><span>Квадрат стальной</span><small>7</small></a><a class="" href="../../provoloka-vyazalnaya/"><img src="../../assets/img/cat/provoloka-vyazalnaya.jpg" alt="" loading="lazy"><span>Проволока вязальная</span><small>8</small></a><a class="" href="../../setka-metallicheskaya/"><img src="../../assets/img/cat/setka-metallicheskaya.jpg" alt="" loading="lazy"><span>Сетка металлическая</span><small>21</small></a><a class="" href="../../svai-vintovye/"><img src="../../assets/img/cat/svai-vintovye.svg" alt="" loading="lazy"><span>Сваи винтовые</span><small>16</small></a><a class="" href="../../otvody-stalnye/"><img src="../../assets/img/cat/otvody-stalnye.svg" alt="" loading="lazy"><span>Отводы стальные</span><small>17</small></a></nav><div class="cmain"><header class="phead"><h1>Арматура рифленая А3</h1><p>12 позиций, цены от 15 р. Доставка по Москве и Московской области, актуальные цены и наличие подтвердит менеджер.</p><div class="chips"><a class="" href="../../armatura/armatura-kompozitnaya-asp/">Арматура композитная АСП</a><a class="is-on" href="../../armatura/armatura-riflenaya-a3/">Арматура рифленая А3</a><a class="" href="../../armatura/armatura-gladkaya-a1/">Арматура гладкая А1</a></div></header>
 <div class="prices__tools">
   <div class="field-search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg><input id="catFilter" type="search" placeholder="Название или размер" aria-label="Найти в этом разделе"></div>
   <label class="check"><input id="catSale" type="checkbox"> Только со скидкой</label>
   <p class="prices__count" id="catCount" aria-live="polite">Найдено: 12</p>
 </div>
 <ul class="plist plist--static"><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-6-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-6-mm/">Арматура рифленая А3 А500С - 6 мм</a><span class="prow__price"><b>15 р.</b><small>за метр</small><s>18 р.</s><em>−17%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-6-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-8-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-8-mm/">Арматура рифленая А3 А500С - 8 мм</a><span class="prow__price"><b>24 р.</b><small>за метр</small><s>28 р.</s><em>−14%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-8-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-10-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-10-mm/">Арматура рифленая А3 А500С - 10 мм</a><span class="prow__price"><b>35 р.</b><small>за метр</small><s>41 р.</s><em>−15%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-10-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-12-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-12-mm/">Арматура рифленая А3 А500С - 12 мм</a><span class="prow__price"><b>46 р.</b><small>за метр</small><s>55 р.</s><em>−16%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-12-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-14-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-14-mm/">Арматура рифленая А3 А500С - 14 мм</a><span class="prow__price"><b>67 р.</b><small>за метр</small><s>87 р.</s><em>−23%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-14-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-16-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-16-mm/">Арматура рифленая А3 А500С - 16 мм</a><span class="prow__price"><b>90 р.</b><small>за метр</small><s>115 р.</s><em>−22%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-16-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-18-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-18-mm/">Арматура рифленая А3 А500С - 18 мм</a><span class="prow__price"><b>110 р.</b><small>за метр</small><s>145 р.</s><em>−24%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-18-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-20-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-20-mm/">Арматура рифленая А3 А500С - 20 мм</a><span class="prow__price"><b>135 р.</b><small>за метр</small><s>165 р.</s><em>−18%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-20-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-22-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-22-mm/">Арматура рифленая А3 А500С - 22 мм</a><span class="prow__price"><b>160 р.</b><small>за метр</small><s>190 р.</s><em>−16%</em></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-22-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-25-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-25-mm/">Арматура рифленая А3 А500С - 25 мм</a><span class="prow__price"><b>210 р.</b><small>за метр</small></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-25-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-28-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-28-mm/">Арматура рифленая А3 А500С - 28 мм</a><span class="prow__price"><b>260 р.</b><small>за метр</small></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-28-mm"></span></li><li class="prow" data-key="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-32-mm"><img class="prow__pic" src="../../img/images-1.jpg" alt="" loading="lazy"><a class="prow__name" href="../../armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-32-mm/">Арматура рифленая А3 А500С - 32 мм</a><span class="prow__price"><b>350 р.</b><small>за метр</small></span><span class="prow__act" data-act="armatura/armatura-riflenaya-a3/armatura-riflenaya-a3-a500s-32-mm"></span></li></ul>
-<p class="cat-empty" id="catEmpty" hidden><b>Такой позиции в разделе нет.</b> Проверьте размер или позвоните: <a href="tel:+79164037316">+7 (916) 403-73-16</a>.</p></div>
+<p class="cat-empty" id="catEmpty" hidden><b>Такой позиции в разделе нет.</b> Проверьте размер или позвоните: <a href="tel:+79164037316">+7 (916) 403-73-16</a>.</p></div></div></div>
 </main>
 
 <script>window.MM_BASE = "../../";</script>
@@ -98,7 +101,7 @@
 <div class="mobilebar">
   <a href="tel:+79164037316">Позвонить</a>
   <a href="https://t.me/mosmetalloprokat" target="_blank" rel="noopener">Telegram</a>
-  <button type="button" data-open-cart>Заявка <b data-cart-count>0</b></button>
+  <button type="button" data-open-cart>Рассчитать <b data-cart-count>0</b></button>
 </div>
 
 <dialog class="modal" id="callback" aria-labelledby="cbTitle">
@@ -129,23 +132,23 @@
 <dialog class="drawer" id="cart" aria-labelledby="cartTitle">
   <div class="drawer__in">
     <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-    <h2 id="cartTitle">Ваша заявка</h2>
+    <h2 id="cartTitle">Расчёт стоимости</h2>
     <div id="cartBody"></div>
-    <form class="lead-form" data-lead="Заявка" id="cartForm" hidden>
+    <form class="lead-form" data-lead="Расчёт стоимости" id="cartForm" hidden>
       <label>Имя <input name="name" required autocomplete="name"></label>
       <label>Телефон <input name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__"></label>
       <label>Комментарий <textarea name="comment" rows="2" placeholder="Адрес, резка в размер, удобное время"></textarea></label>
       <label class="consent"><input type="checkbox" name="consent" value="да" required><span>Даю согласие на обработку персональных данных, принимаю <a href="https://mosmetalloprokat.ru/privacy" target="_blank" rel="noopener">политику безопасности</a> и <a href="https://mosmetalloprokat.ru/terms" target="_blank" rel="noopener">пользовательское соглашение</a></span></label>
       <label class="consent"><input type="checkbox" name="marketing" value="да"><span>Даю согласие на звонки с предложениями и SMS-уведомления о заказе</span></label>
-      <button class="btn" type="submit">Отправить заявку</button>
+      <button class="btn" type="submit">Получить расчёт</button>
     </form>
   </div>
 </dialog>
 
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="../../assets/config.js?v=38"></script>
-<script src="../../assets/data.js?v=38"></script>
-<script src="../../assets/app.js?v=38"></script>
+<script src="../../assets/config.js?v=53"></script>
+<script src="../../assets/data.js?v=53"></script>
+<script src="../../assets/app.js?v=53"></script>
 </body>
 </html>

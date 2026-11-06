@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Sofia+Sans+Extra+Condensed:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" href="assets/img/logo.svg" type="image/svg+xml">
-<link rel="stylesheet" href="assets/styles.css?v=38">
+<link rel="stylesheet" href="assets/styles.css?v=53">
 </head>
 <body>
 
@@ -30,15 +30,18 @@
       <div class="search__results" id="searchResults" hidden></div>
     </div>
     <div class="header__phone">
-      <a href="tel:+79164037316">+7 (916) 403-73-16</a>
-      <button class="linkbtn" type="button" data-open="callback">Заказать звонок</button>
+      <a class="header__tel" href="tel:+79164037316">+7 (916) 403-73-16</a>
+      <span class="header__sub"><a class="header__mail" href="mailto:info@mosmetalloprokat.ru">info@mosmetalloprokat.ru</a><button class="linkbtn" type="button" data-open="callback">Заказать звонок</button></span>
     </div>
+    <button class="searchbtn" type="button" aria-label="Поиск" aria-expanded="false">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+    </button>
     <button class="catbtn catbtn--mobile" type="button" data-mega aria-expanded="false" aria-controls="mega" aria-label="Каталог">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
-    <button class="cartbtn" type="button" data-open-cart aria-label="Открыть заявку">
+    <button class="cartbtn" type="button" data-open-cart aria-label="Рассчитать стоимость">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM9 11h7M9 15h7"/></svg>
-      <span class="cartbtn__txt">Заявка</span>
+      <span class="cartbtn__txt">Рассчитать<span class="cartbtn__more"> стоимость</span></span>
       <b data-cart-count>0</b>
     </button>
   </div>
@@ -48,8 +51,8 @@
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
         Весь каталог
       </button>
-      <button class="catnav__sale" type="button" data-sale>Скидки до <span id="maxOff"></span>%</button>
       <a href="#prices">Цены</a>
+      <button class="catnav__sale" type="button" data-sale>Скидки до <span id="maxOff"></span>%</button>
       <a href="#delivery">Доставка</a>
       <a href="#order">Как заказать</a>
       <a href="#payment">Оплата</a>
@@ -70,23 +73,30 @@
 <main>
 
 <section class="top">
-  <img class="top__plan" src="assets/img/blueprint.svg" alt="" width="1600" height="530">
-  <img class="top__beam" src="assets/img/hero-beam.webp" alt="Бургундская стальная двутавровая балка на крюке крана" width="2400" height="1340">
+  <div class="top__bg">
+    <img class="top__plan" src="assets/img/blueprint.svg" alt="" width="1600" height="530">
+    <img class="top__beam" src="assets/img/hero-beam.webp" alt="Бургундская стальная двутавровая балка на крюке крана" width="2400" height="1340">
+  </div>
   <div class="wrap top__txt">
     <h1>Металлопрокат оптом и в розницу</h1>
     <p class="top__slogan">Качество и надёжность</p>
     <p class="top__sub">С доставкой по Москве и области</p>
-    <a class="btn" href="#catalog">Смотреть каталог</a>
+    <a class="btn top__cat" href="catalog/">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      Каталог
+    </a>
+    <div class="top__search" id="topSearch"></div>
   </div>
   <div class="top__quick"><div class="wrap top__quick-in" id="topQuick"><a class="quick" href="armatura/"><span>Арматура</span><b>от 12 р.</b></a><a class="quick" href="truba-profilnaya/"><span>Труба профильная</span><b>от 55 р.</b></a><a class="quick" href="shveller/"><span>Швеллер</span><b>от 570 р.</b></a><a class="quick" href="listovoj-prokat/"><span>Листовой прокат</span><b>от 1 300 р.</b></a></div></div>
 </section>
 
-<section class="facts" aria-label="Коротко о доставке и услугах">
+<div class="darkband">
+<section class="facts" aria-label="Почему выбирают Мосметалл">
   <div class="wrap facts__in">
-    <div><b>до 12:00</b><svg class="dim" viewBox="0 0 240 22" aria-hidden="true"><path d="M1.0 4V12"/><path d="M10.9 7V12"/><path d="M20.8 7V12"/><path d="M30.8 7V12"/><path d="M40.7 7V12"/><path d="M50.6 7V12"/><path d="M60.5 4V12"/><path d="M70.4 7V12"/><path d="M80.3 7V12"/><path d="M90.2 7V12"/><path d="M100.2 7V12"/><path d="M110.1 7V12"/><path d="M120.0 4V12"/><path d="M129.9 7V12"/><path d="M139.8 7V12"/><path d="M149.8 7V12"/><path d="M159.7 7V12"/><path d="M169.6 7V12"/><path d="M179.5 4V12"/><path d="M189.4 7V12"/><path d="M199.3 7V12"/><path d="M209.2 7V12"/><path d="M219.2 7V12"/><path d="M229.1 7V12"/><path d="M239.0 4V12"/><path d="M1 12H239"/><path class="dim__on" d="M1.0 12H120.0"/></svg><span>оформите заказ, чтобы получить его сегодня</span></div>
-    <div><b>08–22</b><svg class="dim" viewBox="0 0 240 22" aria-hidden="true"><path d="M1.0 4V12"/><path d="M10.9 7V12"/><path d="M20.8 7V12"/><path d="M30.8 7V12"/><path d="M40.7 7V12"/><path d="M50.6 7V12"/><path d="M60.5 4V12"/><path d="M70.4 7V12"/><path d="M80.3 7V12"/><path d="M90.2 7V12"/><path d="M100.2 7V12"/><path d="M110.1 7V12"/><path d="M120.0 4V12"/><path d="M129.9 7V12"/><path d="M139.8 7V12"/><path d="M149.8 7V12"/><path d="M159.7 7V12"/><path d="M169.6 7V12"/><path d="M179.5 4V12"/><path d="M189.4 7V12"/><path d="M199.3 7V12"/><path d="M209.2 7V12"/><path d="M219.2 7V12"/><path d="M229.1 7V12"/><path d="M239.0 4V12"/><path d="M1 12H239"/><path class="dim__on" d="M80.3 12H219.2"/></svg><span>возим каждый день, без выходных</span></div>
-    <div><b>20 тонн</b><svg class="dim" viewBox="0 0 240 22" aria-hidden="true"><path d="M1.0 4V12"/><path d="M12.9 7V12"/><path d="M24.8 7V12"/><path d="M36.7 7V12"/><path d="M48.6 7V12"/><path d="M60.5 4V12"/><path d="M72.4 7V12"/><path d="M84.3 7V12"/><path d="M96.2 7V12"/><path d="M108.1 7V12"/><path d="M120.0 4V12"/><path d="M131.9 7V12"/><path d="M143.8 7V12"/><path d="M155.7 7V12"/><path d="M167.6 7V12"/><path d="M179.5 4V12"/><path d="M191.4 7V12"/><path d="M203.3 7V12"/><path d="M215.2 7V12"/><path d="M227.1 7V12"/><path d="M239.0 4V12"/><path d="M1 12H239"/><path class="dim__on" d="M1.0 12H239.0"/></svg><span>предельный вес груза в нашем автопарке</span></div>
-    <div><b>12 метров</b><svg class="dim" viewBox="0 0 240 22" aria-hidden="true"><path d="M1 4V20M239 4V20M20.8 6V12"/><path class="dim__on" d="M1 12H239"/><path class="dim__head" d="M1 12l9-3.500v7zM239 12l-9-3.500v7z"/></svg><span>предельная длина груза, от 1 метра</span></div>
+    <div><b>Доставка сегодня, без выходных</b><span>при заказе до 12:00, возим с 8:00 до 22:00</span></div>
+    <div><b>Резка под нужный размер</b><span>подготовим металл по вашим размерам</span></div>
+    <div><b>Весь товар сертифицирован</b><span>материалы проходят контрольную проверку</span></div>
+    <div><b>279 позиций в каталоге</b><span>арматура, трубы, лист, балка и другие</span></div>
   </div>
 </section>
 
@@ -96,20 +106,7 @@
     <div class="bento" id="bento"><a class="btile btile--photo" href="armatura/"><img src="img/images-1.jpg" alt="" loading="lazy"><span class="btile__name">Арматура</span><small>от 12 р.</small></a><a class="btile btile--photo" href="truba-kruglaya/"><img src="img/images.jpg" alt="" loading="lazy"><span class="btile__name">Труба круглая</span><small>от 90 р.</small></a><a class="btile" href="truba-profilnaya/"><img class="btile__pic" src="assets/img/cat/truba-profilnaya.jpg" alt="" loading="lazy"><span class="btile__name">Труба профильная</span><small>от 55 р.</small></a><a class="btile" href="balka-dvutavrovaya/"><img class="btile__pic" src="assets/img/cat/balka-dvutavrovaya.jpg" alt="" loading="lazy"><span class="btile__name">Балка двутавровая</span><small>от 950 р.</small></a><a class="btile" href="ugolok-stalnoj/"><img class="btile__pic" src="assets/img/cat/ugolok-stalnoj.jpg" alt="" loading="lazy"><span class="btile__name">Уголок стальной</span><small>от 115 р.</small></a><a class="btile" href="polosa-stalnaya/"><img class="btile__pic" src="assets/img/cat/polosa-stalnaya.jpg" alt="" loading="lazy"><span class="btile__name">Полоса стальная</span><small>от 70 р.</small></a><a class="btile btile--photo" href="profnastil/"><img src="img/images-3.jpg" alt="" loading="lazy"><span class="btile__name">Профнастил</span><small>от 850 р.</small></a><a class="btile" href="kvadrat-stalnoj/"><img class="btile__pic" src="assets/img/cat/kvadrat-stalnoj.jpg" alt="" loading="lazy"><span class="btile__name">Квадрат стальной</span><small>от 75 р.</small></a><a class="btile" href="provoloka-vyazalnaya/"><img class="btile__pic" src="assets/img/cat/provoloka-vyazalnaya.jpg" alt="" loading="lazy"><span class="btile__name">Проволока вязальная</span><small>от 110 р.</small></a><a class="btile btile--photo" href="listovoj-prokat/"><img src="img/images-4.jpg" alt="" loading="lazy"><span class="btile__name">Листовой прокат</span><small>от 1 300 р.</small></a><a class="btile" href="setka-metallicheskaya/"><img class="btile__pic" src="assets/img/cat/setka-metallicheskaya.jpg" alt="" loading="lazy"><span class="btile__name">Сетка металлическая</span><small>от 130 р.</small></a><a class="btile" href="svai-vintovye/"><img class="btile__pic" src="assets/img/cat/svai-vintovye.svg" alt="" loading="lazy"><span class="btile__name">Сваи винтовые</span><small>от 250 р.</small></a><a class="btile btile--photo" href="shveller/"><img src="img/images-2.jpg" alt="" loading="lazy"><span class="btile__name">Швеллер</span><small>от 570 р.</small></a><a class="btile btile--photo" href="zaglushki-dlya-trub/"><img src="assets/img/cat/zaglushki-dlya-trub.jpg" alt="" loading="lazy"><span class="btile__name">Заглушки для труб</span><small>от 7 р.</small></a><a class="btile btile--wide" href="otvody-stalnye/"><img class="btile__pic" src="assets/img/cat/otvody-stalnye.svg" alt="" loading="lazy"><span class="btile__name">Отводы стальные</span><small>от 35 р.</small></a><button class="btile btile--cta btile--wide" type="button" data-open="callback"><span class="btile__name">Не нашли нужный размер?</span><small>Закажите звонок, подскажем</small></button></div>
   </div>
 </section>
-
-<section class="dealsec" aria-labelledby="dealsTitle">
-  <div class="wrap">
-    <div class="dealsec__head">
-      <h2 id="dealsTitle">Со скидкой</h2>
-      <i class="dimline"></i>
-      <div class="dealsec__arrows">
-        <button class="arrow" type="button" data-carousel="deals" data-dir="-1" aria-label="Предыдущие товары"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
-        <button class="arrow" type="button" data-carousel="deals" data-dir="1" aria-label="Следующие товары"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
-      </div>
-    </div>
-    <div class="deals__track" id="deals" tabindex="0"></div>
-  </div>
-</section>
+</div>
 
 <section class="prices" id="prices">
   <div class="wrap">
@@ -136,11 +133,31 @@
   </div>
 </section>
 
+<section class="dealsec" aria-labelledby="dealsTitle">
+  <div class="wrap">
+    <div class="dealsec__head">
+      <h2 id="dealsTitle">Со скидкой</h2>
+      <i class="dimline"></i>
+      <div class="dealsec__arrows">
+        <button class="arrow" type="button" data-carousel="deals" data-dir="-1" aria-label="Предыдущие товары"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg></button>
+        <button class="arrow" type="button" data-carousel="deals" data-dir="1" aria-label="Следующие товары"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg></button>
+      </div>
+    </div>
+    <div class="deals__track" id="deals" tabindex="0"></div>
+  </div>
+</section>
+
 <section class="delivery" id="delivery">
   <div class="wrap">
     <div class="delivery__intro">
       <h2>Сколько стоит доставка</h2>
       <p>Нажмите на зону на карте и выберите вес, и расчёт появится сразу. Это предварительная сумма: окончательную стоимость называет менеджер.</p>
+    </div>
+    <div class="dstats" aria-label="Возможности автопарка">
+      <div><b>20 т</b><span>предельный вес груза в автопарке</span></div>
+      <div><b>12 м</b><span>предельная длина груза, от 1 метра</span></div>
+      <div><b>08–22</b><span>часы доставки каждый день</span></div>
+      <div><b>7 дней</b><span>в неделю, без выходных</span></div>
     </div>
     <div class="delivery__in">
     <figure class="zmap">
@@ -180,6 +197,7 @@
     </ul>
     <details class="tariffs">
       <summary>Все тарифы</summary>
+      <p class="tariffs__hint">Нажмите на цену, и она сразу подставится в расчёт выше.</p>
       <div class="tariffs__scroll"><table id="tariffs"></table></div>
     </details>
   </div>
@@ -189,7 +207,7 @@
   <div class="wrap">
     <div class="headline"><h2>Как заказать</h2><i class="dimline"></i></div>
     <ol class="steps">
-      <li><h3>Выберите товар</h3><p>Найдите нужный размер в прайсе и добавьте в заявку столько, сколько нужно.</p></li>
+      <li><h3>Выберите товар</h3><p>Найдите нужный размер в прайсе и добавьте в расчёт столько, сколько нужно.</p></li>
       <li><h3>Оставьте контакты</h3><p>Имя и телефон. Если удобнее, позвоните нам или напишите в Telegram.</p></li>
       <li><h3>Подтвердите с менеджером</h3><p>Менеджер свяжется с вами, уточнит наличие, стоимость и время доставки.</p></li>
       <li><h3>Получите и проверьте</h3><p>Проверьте количество и качество при приёмке: претензии принимаем в этот момент.</p></li>
@@ -203,7 +221,7 @@
       <h2>Оплата и возврат</h2>
       <div class="payment__btns">
         <button class="btn btn--ghost" type="button" data-open="question">Задать вопрос</button>
-        <button class="btn" type="button" data-open-cart>Открыть заявку</button>
+        <button class="btn" type="button" data-open-cart>Рассчитать стоимость</button>
       </div>
     </div>
     <div class="acc">
@@ -298,7 +316,7 @@
 <div class="mobilebar">
   <a href="tel:+79164037316">Позвонить</a>
   <a href="https://t.me/mosmetalloprokat" target="_blank" rel="noopener">Telegram</a>
-  <button type="button" data-open-cart>Заявка <b data-cart-count>0</b></button>
+  <button type="button" data-open-cart>Рассчитать <b data-cart-count>0</b></button>
 </div>
 
 <dialog class="modal" id="callback" aria-labelledby="cbTitle">
@@ -329,23 +347,23 @@
 <dialog class="drawer" id="cart" aria-labelledby="cartTitle">
   <div class="drawer__in">
     <button class="modal__close" type="button" data-close aria-label="Закрыть">×</button>
-    <h2 id="cartTitle">Ваша заявка</h2>
+    <h2 id="cartTitle">Расчёт стоимости</h2>
     <div id="cartBody"></div>
-    <form class="lead-form" data-lead="Заявка" id="cartForm" hidden>
+    <form class="lead-form" data-lead="Расчёт стоимости" id="cartForm" hidden>
       <label>Имя <input name="name" required autocomplete="name"></label>
       <label>Телефон <input name="phone" type="tel" required autocomplete="tel" placeholder="+7 (___) ___-__-__"></label>
       <label>Комментарий <textarea name="comment" rows="2" placeholder="Адрес, резка в размер, удобное время"></textarea></label>
       <label class="consent"><input type="checkbox" name="consent" value="да" required><span>Даю согласие на обработку персональных данных, принимаю <a href="https://mosmetalloprokat.ru/privacy" target="_blank" rel="noopener">политику безопасности</a> и <a href="https://mosmetalloprokat.ru/terms" target="_blank" rel="noopener">пользовательское соглашение</a></span></label>
       <label class="consent"><input type="checkbox" name="marketing" value="да"><span>Даю согласие на звонки с предложениями и SMS-уведомления о заказе</span></label>
-      <button class="btn" type="submit">Отправить заявку</button>
+      <button class="btn" type="submit">Получить расчёт</button>
     </form>
   </div>
 </dialog>
 
 <div class="toast" id="toast" role="status" hidden></div>
 
-<script src="assets/config.js?v=38"></script>
-<script src="assets/data.js?v=38"></script>
-<script src="assets/app.js?v=38"></script>
+<script src="assets/config.js?v=53"></script>
+<script src="assets/data.js?v=53"></script>
+<script src="assets/app.js?v=53"></script>
 </body>
 </html>
